@@ -6,9 +6,6 @@ COPY . .
 
 RUN cargo install --path .
 
-RUN echo $PATH
-RUN ls -l /usr/local/cargo/bin/
-
 # -----
 
 FROM debian:12.5-slim
