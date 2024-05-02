@@ -13,11 +13,18 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Build, tag
-        id: build-image
+      - name: Cargo install
         shell: bash
-        run: |
-          cargo install sea-orm-cli cargo-llvm-cov cargo-nextest
-          rustup component add clippy
+        run: cargo install sea-orm-cli cargo-llvm-cov cargo-nextest
+      - name: Clippy install
+        shell: bash
+        run: rustup component add clippy
           cargo build --release
           docker build --platform linux/amd64 -f ./Dockerfile . -t test
+      - name: Build Binary
+        shell: bash
+        run: cargo build --release
+          docker build --platform linux/amd64 -f ./Dockerfile . -t test
+      - name: Build Docker Image
+        shell: bash
+        run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
