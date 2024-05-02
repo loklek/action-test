@@ -1,0 +1,23 @@
+name: staging
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build, tag
+        id: build-image
+        shell: bash
+        run: |
+          cargo install sea-orm-cli cargo-llvm-cov cargo-nextest
+          rustup component add clippy
+          cargo build --release
+          docker build --platform linux/amd64 -f ./Dockerfile . -t test
