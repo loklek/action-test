@@ -1,0 +1,60 @@
+[package]
+name = "action-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-cors = "0.7.0"
+actix-multipart = "0.6.1"
+actix-web = { version = "4", features = ["cookies"] }
+async-trait = "0.1.77"
+change-case = "0.2.0"
+chrono = { version = "0.4.34", features = ["serde"] }
+chrono-tz = "0.8.6"
+derive_more = "0.99.17"
+dotenv = "0.15.0"
+futures-util = "0.3.30"
+lazy_static = "1.4.0"
+mime_guess = "2.0.4"
+rust-embed = "8.2.0"
+sea-orm = { version = "0.12.15", features = [
+    "sqlx-mysql",
+    "runtime-tokio-native-tls",
+    "macros",
+    "mock",
+] }
+serde = "1.0.196"
+serde_json = "1.0.113"
+sqlx = "0.7.3"
+tokio = { version = "1.35.1", features = ["full"] }
+urlencoding = "2.1.3"
+uuid = { version = "1.7.0", features = [
+    "v4",                # Lets you generate random UUIDs
+    "fast-rng",          # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics",
+] }
+validator = { version = "0.16.1", features = ["derive"] }
+log = "0.4"
+fern = "0.6"
+humantime = "2.1.0"
+futures = "0.3.30"
+sentry = "0.32.2"
+mockito = "1.4.0"
+tokio-util = { version = "0.7.10", features = ["codec"] }
+surf = "2.3.2"
+fancy-regex = "0.13.0"
+bcrypt = "0.15.1"
+base64 = "0.22.0"
+zipit = { version = "0.4.0", features = ["tokio-async-io", "chrono-datetime"] }
+actix-web-lab = "0.20.2"
+zip_next = { version = "0.10.3", default-features = false }
+sea-query = "0.30.7"
+tokio-cron-scheduler = "0.10.0"
+
+[dev-dependencies]
+actix-multipart-test = "0.0.3"
+env_logger = "0.11.3"
+rstest = "0.18.2"
+

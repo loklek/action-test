@@ -1,0 +1,26 @@
+language: "rust"
+
+tasks:
+  build:
+    command: "cargo build --release"
+    options:
+      cache: false
+
+  install:
+    deps:
+      - "cargo_install"
+      - "rustup_install"
+    platform: "system"
+
+  cargo_install:
+    command: "cargo install sea-orm-cli cargo-llvm-cov cargo-nextest"
+
+  rustup_install:
+    command: "rustup component add clippy"
+
+  docker_build:
+    command: "docker build --platform linux/amd64 -f ./Dockerfile ."
+    deps:
+      - "build"
+    options:
+      cache: false
