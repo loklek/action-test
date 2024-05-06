@@ -19,6 +19,15 @@ jobs:
       - name: Clippy install
         shell: bash
         run: rustup component add clippy
+      - name: Debug
+        shell: bash
+        run: |
+          ls -la /usr/local
+          echo $CARGO_INSTALL_ROOT
+          echo $CARGO_HOME
+          ls -la $HOME
+          pwd
+          whoami
       - name: Build Binary
         shell: bash
         run: cargo build --release
