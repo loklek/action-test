@@ -22,10 +22,7 @@ jobs:
       - name: Debug
         shell: bash
         run: |
-          ls -la /usr/local
-          echo $CARGO_INSTALL_ROOT
-          echo $CARGO_HOME
-          ls -la $HOME
+          ls -la $HOME/.cargo
           pwd
           whoami
       - name: Build Binary
