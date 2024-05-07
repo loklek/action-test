@@ -13,7 +13,7 @@ FROM debian:12.5-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends openssl libcurl4 vlc
+RUN --mount=type=cache,target=/var/cache/apt apt-get update && apt-get install -y --no-install-recommends openssl libcurl4 vlc
 # RUN apt-get update && apt-get install -y --no-install-recommends openssl libcurl4 && rm -rf /var/lib/apt/lists/*
 
 # COPY --from=builder /usr/local/cargo/bin/action-test /usr/local/bin/action-test
