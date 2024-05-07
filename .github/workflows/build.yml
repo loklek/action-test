@@ -19,13 +19,18 @@ jobs:
     #   - name: Clippy install
     #     shell: bash
     #     run: rustup component add clippy
-      - name: Debug
-        shell: bash
-        run: |
-          docker images
+    #   - name: Debug
+    #     shell: bash
+    #     run: |
+    #       docker images
     #   - name: Build Binary
     #     shell: bash
     #     run: cargo build --release
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: apt-install
       - name: Build Docker Image
         shell: bash
         run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
