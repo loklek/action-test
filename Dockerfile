@@ -8,6 +8,7 @@
 # RUN cargo install --path .
 
 # -----
+# test
 FROM debian:12.5-slim
 
 WORKDIR /app
