@@ -41,3 +41,6 @@ jobs:
       - name: Build Docker Image
         shell: bash
         run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
+      - name: Debug docker
+        shell: bash
+        run: docker system df
