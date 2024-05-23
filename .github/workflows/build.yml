@@ -29,10 +29,10 @@ jobs:
       - name: Edit .dockerignore
         shell: bash
         run: |
-          sed '$d' .dockerfile .dockerfile_tmp
-          rm .dockerfile
-          mv .dockerfile_tmp .dockerfile
-          cat .dockerfile
+          sed '$d' .dockerignore .dockerignore_tmp
+          rm .dockerignore
+          mv .dockerignore_tmp .dockerignore
+          cat .dockerignore
       - name: Cache
         uses: actions/cache@v4
         with:
