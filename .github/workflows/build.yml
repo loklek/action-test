@@ -26,6 +26,13 @@ jobs:
     #   - name: Build Binary
     #     shell: bash
     #     run: cargo build --release
+      - name: Edit .dockerignore
+        shell: bash
+        run: |
+          sed '$d' .dockerfile .dockerfile_tmp
+          rm .dockerfile
+          mv .dockerfile_tmp .dockerfile
+          cat .dockerfile
       - name: Cache
         uses: actions/cache@v4
         with:

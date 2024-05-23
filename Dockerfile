@@ -1,20 +1,17 @@
-# FROM rust:bookworm AS builder
+FROM rust:bookworm AS builder
 
-# WORKDIR /app/backend
+WORKDIR /app/backend
 
-# COPY . .
+COPY . .
 
-# RUN --mount=type=cache,target=./target/release cargo install --path .
+RUN ls -la
+
 # RUN cargo install --path .
 
 # -----
-# test
-FROM debian:12.5-slim
+# FROM debian:12.5-slim
 
-WORKDIR /app
-
-RUN --mount=type=cache,target=/var/cache/apt apt-get update && apt-get install -y --no-install-recommends openssl libcurl4 vlc
-# RUN apt-get update && apt-get install -y --no-install-recommends openssl libcurl4 && rm -rf /var/lib/apt/lists/*
+# WORKDIR /app
 
 # COPY --from=builder /usr/local/cargo/bin/action-test /usr/local/bin/action-test
 
