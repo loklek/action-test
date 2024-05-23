@@ -29,7 +29,7 @@ jobs:
       - name: Edit .dockerignore
         shell: bash
         run: |
-          sed '$d' .dockerignore .dockerignore_tmp
+          sed '$d' .dockerignore > .dockerignore_tmp
           rm .dockerignore
           mv .dockerignore_tmp .dockerignore
           cat .dockerignore
