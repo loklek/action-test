@@ -37,7 +37,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: apps/backend/target
-          key: key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
       - name: Build release
         shell: bash
         run: |
