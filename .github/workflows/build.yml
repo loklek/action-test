@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
     #   - name: Cargo install
     #     shell: bash
-    #     run: cargo install sea-orm-cli cargo-llvm-cov cargo-nextest
+    #     run: cargo install sea-orm-cli
     #   - name: Clippy install
     #     shell: bash
     #     run: rustup component add clippy
@@ -36,11 +36,15 @@ jobs:
       - name: Cache
         uses: actions/cache@v4
         with:
-          path: /var/cache/apt
-          key: apt-install
-      - name: Build Docker Image
+          path: apps/backend/target
+          key: key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
+      - name: Build release
         shell: bash
-        run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
-      - name: Debug docker
-        shell: bash
-        run: docker system df
+        run: |
+          cargo build --release
+    #   - name: Build Docker Image
+    #     shell: bash
+    #     run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
+    #   - name: Debug docker
+    #     shell: bash
+    #     run: docker system df

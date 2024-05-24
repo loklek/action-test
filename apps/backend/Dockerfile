@@ -1,10 +1,10 @@
 FROM rust:bookworm AS builder
 
+ARG DELETE_PREV_TARGET
+
 WORKDIR /app/backend
 
 COPY . .
-
-RUN ls -la
 
 # RUN cargo install --path .
 
