@@ -26,13 +26,13 @@ jobs:
     #   - name: Build Binary
     #     shell: bash
     #     run: cargo build --release
-      - name: Edit .dockerignore
-        shell: bash
-        run: |
-          sed '$d' .dockerignore > .dockerignore_tmp
-          rm .dockerignore
-          mv .dockerignore_tmp .dockerignore
-          cat .dockerignore
+      # - name: Edit .dockerignore
+      #   shell: bash
+      #   run: |
+      #     sed '$d' .dockerignore > .dockerignore_tmp
+      #     rm .dockerignore
+      #     mv .dockerignore_tmp .dockerignore
+      #     cat .dockerignore
       - name: Cache
         uses: actions/cache@v4
         with:
