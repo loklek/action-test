@@ -41,6 +41,7 @@ jobs:
       - name: Build release
         shell: bash
         run: |
+          cd apps/backend
           cargo build --release
     #   - name: Build Docker Image
     #     shell: bash
