@@ -37,11 +37,11 @@ jobs:
         with:
           path: apps/backend/target
           key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
-      - name: Build release
-        shell: bash
-        run: |
-          cd apps/backend
-          cargo build --release
+      # - name: Build release
+      #   shell: bash
+      #   run: |
+      #     cd apps/backend
+      #     cargo build --release
     #   - name: Build Docker Image
     #     shell: bash
     #     run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
