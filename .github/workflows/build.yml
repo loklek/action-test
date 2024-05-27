@@ -29,9 +29,9 @@ jobs:
       - name: Edit .dockerignore
         shell: bash
         run: |
-          cat .dockerignore
-          sed -i '' '$d' .dockerignore
-          cat .dockerignore
+          cat apps/backend/.dockerignore
+          sed -i '' '$d' apps/backend/.dockerignore
+          cat apps/backend/.dockerignore
       - name: Cache
         uses: actions/cache@v4
         with:
