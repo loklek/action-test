@@ -31,7 +31,7 @@ jobs:
         run: |
           ls -la apps/backend/
           cat apps/backend/.dockerignore
-          sed -i '' '$d' apps/backend/.dockerignore
+          sed -i '$d' apps/backend/.dockerignore
           ls -la apps/backend/
           cat apps/backend/.dockerignore
       - name: Cache
