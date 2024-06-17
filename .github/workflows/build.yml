@@ -29,12 +29,12 @@ jobs:
       - name: Run backend
         shell: bash
         run: |
-          cd apps/backend &&
+          cd apps/backend
           cargo run &
       - name: Run frontend
         shell: bash
         run: |
-          cd ../frontend
+          cd apps/frontend
           yarn install
           yarn dev &
       - name: Run frontend test
