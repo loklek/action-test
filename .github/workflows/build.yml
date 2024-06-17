@@ -40,6 +40,7 @@ jobs:
       - name: Run frontend test
         shell: bash
         run: |
+          cd apps/frontend
           yarn test
     #       ls -la apps/backend/
     #       cat apps/backend/.dockerignore
