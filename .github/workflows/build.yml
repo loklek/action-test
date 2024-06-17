@@ -29,16 +29,22 @@ jobs:
       - name: Edit .dockerignore
         shell: bash
         run: |
-          ls -la apps/backend/
-          cat apps/backend/.dockerignore
-          sed -i '$d' apps/backend/.dockerignore
-          ls -la apps/backend/
-          cat apps/backend/.dockerignore
-      - name: Cache
-        uses: actions/cache@v4
-        with:
-          path: apps/backend/target
-          key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
+            cd apps/backend
+            cargo run
+            cd ../frontend
+            yarn install
+            yarn dev
+            yarn test
+    #       ls -la apps/backend/
+    #       cat apps/backend/.dockerignore
+    #       sed -i '$d' apps/backend/.dockerignore
+    #       ls -la apps/backend/
+    #       cat apps/backend/.dockerignore
+    #   - name: Cache
+    #     uses: actions/cache@v4
+    #     with:
+    #       path: apps/backend/target
+    #       key: ${{ runner.os }}-${{ hashFiles('apps/backend/Cargo.lock') }}
       # - name: Build release
       #   shell: bash
       #   run: |

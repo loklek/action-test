@@ -1,3 +1,6 @@
 .env
-Dockerfile
 target/
+Dockerfile
+etarget
+etarget/
+target
