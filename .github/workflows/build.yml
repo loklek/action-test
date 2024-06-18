@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
-      run: shell
+      shell: bash
       working-directory: ./apps/backend
     permissions:
       id-token: write
@@ -24,31 +24,24 @@ jobs:
             ~/.cargo
           key: backend-dependencies
       - name: Cargo install
-        shell: bash
         run: cargo install sea-orm-cli
     #   - name: Clippy install
-    #     shell: bash
     #     run: rustup component add clippy
     #   - name: Debug
-    #     shell: bash
     #     run: |
     #       docker images
       - name: Build Binary
-        shell: bash
         run: cargo build
       # - name: Run backend
-      #   shell: bash
       #   run: |
       #     cd apps/backend
       #     cargo run &
       # - name: Run frontend
-      #   shell: bash
       #   run: |
       #     cd apps/frontend
       #     yarn install
       #     yarn dev &
       # - name: Run frontend test
-      #   shell: bash
       #   run: |
       #     cd apps/frontend
       #     yarn test
@@ -58,13 +51,10 @@ jobs:
     #       ls -la apps/backend/
     #       cat apps/backend/.dockerignore
       # - name: Build release
-      #   shell: bash
       #   run: |
       #     cd apps/backend
       #     cargo build --release
     #   - name: Build Docker Image
-    #     shell: bash
     #     run: docker build --platform linux/amd64 -f ./Dockerfile . -t test
     #   - name: Debug docker
-    #     shell: bash
     #     run: docker system df
