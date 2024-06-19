@@ -11,7 +11,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: apps/backend
     permissions:
       id-token: write
       contents: read
@@ -32,6 +31,7 @@ jobs:
         run: |
           pwd
       - name: Build Binary
+        working-directory: apps/backend
         run: cargo build
       # - name: Run backend
       #   run: |
