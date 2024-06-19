@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./apps/backend
+        working-directory: apps/backend
     permissions:
       id-token: write
       contents: read
@@ -28,9 +28,9 @@ jobs:
         run: cargo install sea-orm-cli
     #   - name: Clippy install
     #     run: rustup component add clippy
-    #   - name: Debug
-    #     run: |
-    #       docker images
+      - name: Debug
+        run: |
+          pwd
       - name: Build Binary
         run: cargo build
       # - name: Run backend
