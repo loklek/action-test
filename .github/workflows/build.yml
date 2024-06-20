@@ -21,9 +21,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            !./apps/backend/target/debug
             ./apps/backend/target/
             ~/.cargo
-            !./apps/backend/target/debug
           key: backend-dependencies
       # - name: Cargo install
       #   run: cargo install sea-orm-cli
