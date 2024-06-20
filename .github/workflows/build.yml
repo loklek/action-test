@@ -30,12 +30,12 @@ jobs:
     #   - name: Clippy install
     #     run: rustup component add clippy
       - name: Debug
+        continue-on-error: true
         run: |
           ls target
-          pwd
-          stat -c %Y Dockerfile
+          # pwd
+          # stat -c %Y Dockerfile
       - name: Build Binary
-        working-directory: apps/backend
         run: cargo build
       # - name: Run backend
       #   run: |
