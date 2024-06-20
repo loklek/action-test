@@ -23,13 +23,15 @@ jobs:
           path: |
             ./apps/backend/target/
             ~/.cargo
+            !./apps/backend/target/debug
           key: backend-dependencies
-      - name: Cargo install
-        run: cargo install sea-orm-cli
+      # - name: Cargo install
+      #   run: cargo install sea-orm-cli
     #   - name: Clippy install
     #     run: rustup component add clippy
       - name: Debug
         run: |
+          ls target
           pwd
           stat -c %Y Dockerfile
       - name: Build Binary
