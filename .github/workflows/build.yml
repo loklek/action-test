@@ -22,7 +22,7 @@ jobs:
         with:
           path: |
             ./apps/backend/target/*
-            !./apps/backend/target/debug
+            !./apps/backend/target/.rustc_info.json
             ~/.cargo
           key: backend-dependencies
       # - name: Cargo install
@@ -32,7 +32,7 @@ jobs:
       - name: Debug
         continue-on-error: true
         run: |
-          ls target
+          ls -l target
           # pwd
           # stat -c %Y Dockerfile
       - name: Build Binary
